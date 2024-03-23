@@ -6,10 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
 
-import ca.mcmaster.se2aa4.island.team222.Actions.*;
-import ca.mcmaster.se2aa4.island.team222.Directions.CardinalDirection;
-import ca.mcmaster.se2aa4.island.team222.Phases.*;
-import ca.mcmaster.se2aa4.island.team222.Responses.*;
+import ca.mcmaster.se2aa4.island.team222.actions.*;
+import ca.mcmaster.se2aa4.island.team222.directions.CardinalDirection;
+import ca.mcmaster.se2aa4.island.team222.phases.*;
+import ca.mcmaster.se2aa4.island.team222.responses.*;
 
 public class Controller {
 
@@ -35,6 +35,9 @@ public class Controller {
                 AllPOIS creekLocations = currentPhase.getCreeks();
                 ClosestCreek findCreek = new ClosestCreek(creekLocations);
                 closestCreek = findCreek.findClosestCreek();
+                logger.info("Closest Creek: " + closestCreek.getID());
+                logger.info(closestCreek.getX());
+                logger.info(closestCreek.getY());
                 previousAction = ActionType.STOP; 
                 return new Action(ActionType.STOP);
             }
